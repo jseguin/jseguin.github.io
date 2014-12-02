@@ -1,0 +1,31 @@
+<iframe src="//player.vimeo.com/video/33809813" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p>For, <em>In My Nightmares I Dream of Black Blocks</em>, I aimed to make a game that combined several core gameplay elements together. The main theme around which I based the game was survival. I wanted the player to feel threatened, to feel like their chances of winning were limited. However, it is difficult to create a game environment that truly feels threatening. When playing video games I quickly start to notice where the rules can be bent, how the game has been structured, and how those realizations limits the game designer from conveying the emotions they wish a player to feel. For instance in a game like Metal Gear Solid, your goal might be to stealthily sneak pass guards, but if you observe carefully you will notice a dissonance between what should realistically happen, and what the guard's AI is capable of emulating. For example, you stand facing a guard and you see the guard, yet the guard does not see you. This is because you are standing just outside of the guard's range of detection. Should this have been a situation in real life, the guard would have been staring directly at you and you would have been caught. Noticing these patterns removes the player from the situation and makes them aware of the game itself.</p>
+<p><!-- more --></p>
+<p>Generative processes are intriguing to me, because they have the potential to create situations that are unique each time they are experienced. Using a genetic algorithm made it possible to develop enemies that would be responsive instead of premeditated in their actions. By using a genetic algorithm to serve as the enemy's mode of navigation, it appears that the enemies are acting with increasing intelligence. However, every action each enemy carries out is the result of adhering to a strict set of rules. The enemies do not have a deterministic set of behaviours, their rule set instead determines how they learn to behave. Thus the enemies present an interaction with the player that is continuous in the way that they constantly measure the state of their success and act accordingly. This biological approach to computing also led me to want to incorporate other biological elements into my code.</p>
+
+<p><em>In My Nightmares I Dream of Black Blocks</em>, is my attempt at creating a survival game that implements an environment that is adaptive instead of discretely responsive. By implementing a genetic algorithm, no matter how dumb the enemy, it will achieve its goal eventually.</p>
+<p><strong>How It Works</strong></p>
+<p>Players are given a setup period to construct a barricade. Barricades consist of 4 different elements:</p>
+<p>There are two types of physical blocks that act as obstacles: wooden crates and metal crates.</p>
+<ul>
+<li>Wooden crates are more abundant, however enemies will break through them fairly fast.</li>
+<li>Metal crates on the other hand are much more durable, they have double the life span of a wooden crate, but there are fewer of them to utilize.</li>
+</ul><p>The other two barricading elements are traps.</p>
+<ul><li>Yellow squares represent traps that will limit the enemy's speed, making them slower and easier to avoid or escape.</li>
+<li>Red squares represent traps that do damage over time. Enemies that walk into these traps will slowly have their life diminished.</li>
+</ul><p>After the player has finished setting up their barricade the game starts. A group of enemies, "creeps", will attempt to hunt the player down. At first they may not even reach the player, however creeps come in waves and each generation of creeps are smarter than the last. Creeps have certain behaviours and traits they possess. Some creeps will try to break your barricade down, other creeps will consider barricades a dead end and continue moving. The player is tasked with surviving these waves of enemies for as long as possible.</p>
+<p>To survive:</p>
+<ul><li>The player can move around the entire map positioning themselves to avoid waves of creeps.</li>
+<li>The player is supplied with a gun and 100 bullets to defend themselves with.</li>
+<li>Each creep takes 2 hits to kill, however shooting a creep temporarily halts their movement and forces them backward.</li>
+</ul><p>Creeps become smarter by determining which creeps are most successful and spawning a new generation of creeps that mimic successful behaviours. Currently success is determined by how close the creep makes it to the player and how much damage it does to the player.</p>
+<div class="caption-wrapper">
+  <img alt="Black Blocks gameplay" src="https://googledrive.com/host/0B71Tf9WLQG1PWTc2SGwyd2lxQ2M/GeneticCreepDefence/creep_defence.png"/>
+  <p class="caption"><em>Above: The game in action.</em></p>
+</div>
+
+<p><strong>Improvements</strong></p>
+<p>The concept is not fully implemented and future versions could improve vastly on the formula. I wish to tweak the success criteria for the genetic algorithm to include things such as:</p>
+<ul><li>Does a creep have the player in vision?</li>
+<li>How many collisions with undesirable objects have occurred?</li>
+<li>Has a creep died before its life expectancy?</li>

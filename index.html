@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="jangle">
+  <head>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Jontheautomaton</title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-cloak ng-controller="ChromeCtrl as chrome" ng-class="{'no-scroll-mobile': chrome.drawerEnabled}">
+
+    <div id="curtain" ng-class="{'curtain-active': chrome.drawerEnabled}"></div>
+    <div class="container">
+      <div class="row">
+
+        <div id="bar" class="nav-container col-md-2" >
+          <nav id="site-nav" class="fixedwidth" jng-fix-to-parent jng-on-scroll threshold="10">
+            <span class="hamburger-wrapper" ng-click="chrome.toggleDrawer()">
+              <span class="hamburger" >
+                <div class="hamburger-bun-top"></div>
+                <div class="hamburger-patty"></div>
+                <div class="hamburger-bun-bottom"></div>
+              </span>
+            </span>
+            <h1 id="title-text"><a id="title-anchor" href="./#/">Jonathan Seguin</a></h1>
+            <!-- ng-hide backup -->
+            <!-- ng-show="chrome.drawerEnabled" -->
+            <!-- add to default classes: ng-hide -->
+            <div class="slide-out slide-out-hidden"
+                  ng-class="{'slide-out-hidden': !chrome.drawerEnabled}"
+                  clicked-elsewhere="chrome.closeDrawer()">
+              <ul class="nav-sections-linklist">
+                <li><a href="./#/portfolio" ng-click="chrome.toggleDrawer()" jng-active-link="link-active">Projects</a></li>
+                <!-- <li><a href="./#/blog" ng-click="chrome.toggleDrawer()" jng-active-link="link-active">Blog</a></li> -->
+                <li><a href="./#/about" ng-click="chrome.toggleDrawer()" jng-active-link="link-active">About</a></li>
+                <!-- <li class="list-divider"><h1>Connect</h1></section> -->
+                <li><a href="https://github.com/jseguin" ng-click="chrome.toggleDrawer()">Github</a></li>
+                <li><a href="http://www.linkedin.com/in/jonseguin" ng-click="chrome.toggleDrawer()">Linkedin</a></li>
+                <li><a href="https://twitter.com/jontheautomaton" ng-click="chrome.toggleDrawer()">Twitter</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Content -->
+        <div ng-view id="current-view" class="col-md-10" ></div>
+      </div>
+    </div>
+  </body>
+</html>

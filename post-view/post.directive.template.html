@@ -1,0 +1,14 @@
+<div class="post row">
+  <div class="col-md-11 col-lg-10">
+    <div class="post-head">
+      <h1 class="post-title">{{Post.title}}</h1>
+      <h2 class="post-subhead">{{Post.subhead}}</h2>
+      <p class="post-date">{{Post.date | date:'MMMM d, y'}}</p>
+    </div>
+    <div class="post-content" ng-bind-html="Post.postText"></div>
+    <!-- <p>Tags:</p>
+    <div ng-repeat="tag in Post.tags">
+      <p>{{tag}}</p>
+    </div> -->
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="portfolio-grid" ng-controller="PortfolioCtrl as portfolio">
+  <div class="portfolio-row" ng-repeat="row in portfolio.rows"><!--class="portfolio-row row"-->
+    <div class="portfolio-item-wrapper col-sm-6 col-md-4" ng-repeat="item in row">
+      <div class=portfolio-item>
+        <div class="aspect-ratio-6-7"></div>
+        <a class="portfolio-item-link" href="./#/{{item.id}}">
+          <div class="portfolio-item-content">
+            <div class="header-pic-container">
+              <div class="aspect-ratio-4-3"></div>
+              <img class="header-pic" ng-src="{{item.headerPic}}"/>
+            </div>
+            <div class="portfolio-item-text">
+              <span>{{item.date | date:'MMMM d, y'}}</span>
+              <h1 class="portfolio-item-title">{{item.title}}</h1>
+              <!-- <p>{{item.description}}</p> -->
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
