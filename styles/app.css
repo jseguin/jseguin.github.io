@@ -4,7 +4,8 @@ body {
 @media (max-width: 991px) {
   .slide-out {
     overflow-y: auto;
-    transition: left 0.1s ease-in-out;
+    -webkit-transition: left 0.1s ease-in-out;
+            transition: left 0.1s ease-in-out;
     position: fixed;
     top: 60px;
     left: 0;
@@ -32,7 +33,8 @@ body {
     top: 45px; } }
 @media (min-width: 992px) {
   .slide-out {
-    transition: none;
+    -webkit-transition: none;
+            transition: none;
     margin-top: 60px; } }
 
 #title-text {
@@ -50,7 +52,8 @@ body {
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
       margin: 0;
       margin-right: -50%;
       max-width: 75%;
@@ -82,7 +85,8 @@ body {
       border-bottom: 1px black solid;
       background: white;
       z-index: 900;
-      transition: top 0.1s linear;
+      -webkit-transition: top 0.1s linear;
+              transition: top 0.1s linear;
       box-shadow: 0px 1.732px 2px 0px rgba(0, 0, 0, 0.14); } }
   @media (min-width: 320px) and (max-width: 359px) {
     #site-nav {
@@ -142,7 +146,9 @@ body {
     .list-divider > h1 {
       position: absolute;
       top: 50%;
-      transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+          -ms-transform: translate(0, -50%);
+              transform: translate(0, -50%);
       font-size: 26px;
       margin: 0; } }
 
@@ -159,9 +165,6 @@ body {
     .hamburger {
       width: 28px;
       height: 28px; } }
-  @media (min-width: 992px) {
-    .hamburger {
-      display: none; } }
 
 .hamburger-bun-top, .hamburger-bun-bottom, .hamburger-patty {
   width: 100%;
@@ -176,6 +179,9 @@ body {
   width: 64px;
   max-width: 12.5%;
   z-index: 1001; }
+  @media (min-width: 992px) {
+    .hamburger-wrapper {
+      display: none; } }
 
 @media (max-width: 991px) {
   .portfolio-grid {
@@ -204,19 +210,29 @@ body {
   width: 100%;
   border: 1px solid #e7e7e7;
   box-shadow: 0px 1.732px 2px 0px rgba(0, 0, 0, 0.14);
-  transition: transform 0.08s ease-in-out; }
+  -webkit-transition: -webkit-transform 0.08s ease-in-out;
+          transition: transform 0.08s ease-in-out; }
   .portfolio-item:hover {
-    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
     box-shadow: 0px 1.732px 3px 0px rgba(0, 0, 0, 0.3); }
     @media (max-width: 991px) {
       .portfolio-item:hover {
-        transform: scale(1.01); } }
+        -webkit-transform: scale(1.01);
+            -ms-transform: scale(1.01);
+                transform: scale(1.01); } }
   .portfolio-item:active {
-    transform: scale(1.1);
-    transition: none; }
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-transition: none;
+            transition: none; }
     @media (max-width: 991px) {
       .portfolio-item:active {
-        transform: scale(1.03);
+        -webkit-transform: scale(1.03);
+            -ms-transform: scale(1.03);
+                transform: scale(1.03);
         box-shadow: 0px 1.732px 2px 0px rgba(0, 0, 0, 0.14); } }
 
 .portfolio-item-content {
@@ -285,7 +301,9 @@ body {
     width: 100%;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
     margin: 18px 0;
     padding: 10px;
     border: solid 1px lightgrey;
@@ -311,9 +329,25 @@ body {
       .post img.media-medium, .post .caption-wrapper.media-medium {
         max-width: 65%; } }
 
-iframe:fullscreen {
+iframe:-webkit-full-screen {
+  left: 0;
+  -webkit-transform: none;
+          transform: none; }
+
+iframe:-moz-full-screen {
   left: 0;
   transform: none; }
+
+iframe:-ms-fullscreen {
+  left: 0;
+  -ms-transform: none;
+      transform: none; }
+
+iframe:fullscreen {
+  left: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none; }
 
 iframe:-moz-full-screen {
   left: 0;
@@ -321,11 +355,13 @@ iframe:-moz-full-screen {
 
 iframe:-webkit-full-screen {
   left: 0;
-  transform: none; }
+  -webkit-transform: none;
+          transform: none; }
 
 iframe:-ms-full-screen {
   left: 0;
-  transform: none; }
+  -ms-transform: none;
+      transform: none; }
 
 .caption-wrapper img, .caption-wrapper iframe {
   margin: 0;
@@ -355,7 +391,8 @@ iframe:-ms-full-screen {
     z-index: -1;
     background-color: black;
     opacity: 0;
-    transition: opacity 0.3s linear; }
+    -webkit-transition: opacity 0.3s linear;
+            transition: opacity 0.3s linear; }
 
   #curtain.curtain-active {
     z-index: 100;
@@ -368,7 +405,9 @@ iframe:-ms-full-screen {
     position: static;
     top: 0;
     left: 0;
-    transform: none;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
     float: left;
     margin: 0 15px 15px 0; }
     @media (max-width: 599px) {
@@ -376,7 +415,9 @@ iframe:-ms-full-screen {
         width: 80%;
         position: relative;
         left: 50%;
-        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
         float: none; } }
     @media (max-width: 319px) {
       #about-me .profile-pic {
@@ -415,7 +456,7 @@ ul.contact-list {
     overflow: hidden;
     position: fixed; } }
 
-body.no-scroll, .container.no-scroll {
+body.no-scroll-mobile {
   height: 100%;
   width: 100%; }
 
